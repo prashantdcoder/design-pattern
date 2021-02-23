@@ -1,13 +1,16 @@
 import builder.User;
+import factoryMethod.EmailNotificationCreator;
+import factoryMethod.Notification;
+import factoryMethod.NotificationCreator;
+import factoryMethod.SmsNotificationCreator;
 import simpleFactory.UserFactory;
 import simpleFactory.UserType;
 
 public class DesignPatternApplication {
 
     public static void main(String args[]) {
-        simpleFactoryPattern();
+        factoryMethodPattern();
     }
-
 
     static void builderPattern() {
         User user = new User.UserBuilder()
@@ -30,4 +33,16 @@ public class DesignPatternApplication {
         simpleFactory.User buyer = UserFactory.getInstance(UserType.BUYER);
         buyer.showDetails();
     }
+
+    static void factoryMethodPattern() {
+        NotificationCreator emailCreator = new EmailNotificationCreator("abc@gmail.com", "abc@zoho.com");
+        Notification emailNotification = emailCreator.getNotification();
+        emailNotification.send("EMAIL WORLD");
+
+        NotificationCreator smsCreator = new SmsNotificationCreator("999", "888");
+        Notification smsNotification = smsCreator.getNotification();
+        smsNotification.send("SMS WORLD");
+
+    }
+
 }
