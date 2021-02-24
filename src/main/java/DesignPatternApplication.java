@@ -3,13 +3,15 @@ import factoryMethod.EmailNotificationCreator;
 import factoryMethod.Notification;
 import factoryMethod.NotificationCreator;
 import factoryMethod.SmsNotificationCreator;
+import prototype.Rectangle;
+import prototype.Square;
 import simpleFactory.UserFactory;
 import simpleFactory.UserType;
 
 public class DesignPatternApplication {
 
     public static void main(String args[]) {
-        factoryMethodPattern();
+        prototypePattern();
     }
 
     static void builderPattern() {
@@ -43,6 +45,23 @@ public class DesignPatternApplication {
         Notification smsNotification = smsCreator.getNotification();
         smsNotification.send("SMS WORLD");
 
+    }
+
+    static void prototypePattern() {
+        try {
+            Rectangle small = new Rectangle(10, 20);
+            small.getArea();
+            Rectangle large = (Rectangle) small.clone();
+            large.getArea();
+
+            Square one = new Square(7);
+            one.getArea();
+            Square two = one.clone();
+            two.getArea();
+
+        } catch (CloneNotSupportedException e) {
+            System.out.println("Exception: " + e.getMessage());
+        }
     }
 
 }
