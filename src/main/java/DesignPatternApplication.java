@@ -1,8 +1,8 @@
-import factoryMethod.FactoryPattern;
+import abstractFactory.AbstractFactoryPattern;
 
 public class DesignPatternApplication {
 
     public static void main(String args[]) {
-        FactoryPattern.pizzaExecute();
+        AbstractFactoryPattern.execute();
     }
 }
