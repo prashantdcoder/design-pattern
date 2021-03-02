@@ -1,8 +1,9 @@
-import abstractFactory.AbstractFactoryPattern;
+import singleton.SingletonPattern;
 
 public class DesignPatternApplication {
 
     public static void main(String args[]) {
-        AbstractFactoryPattern.execute();
+        SingletonPattern.eagerInitialization();
+        SingletonPattern.threadSafeLazyInitialization();
     }
 }
